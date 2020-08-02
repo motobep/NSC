@@ -36,7 +36,9 @@ That's it. The nsc file is in the bin folder.
 To check the installation type "make run-prod".
 You should see the hello.cpp file in the test folder.
 
-Add this file in /bin or /usr/local/bin folder to have access from everywhere in your terminal.
+Add nsc file in /bin or /usr/local/bin folder to have access from everywhere in your terminal.
+
+**Add nsccp file in /bin or /usr/local/bin folder and use it like g++.**
 
 ## Usage
 

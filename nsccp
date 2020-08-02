@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# It ouputs .c, .cpp files from .nsc, .nscp, .nscpp files and compiles them with g++.
+#
+# Put this file in /bin or /usr/local/bin
+#
+# Example:
+# $ nsccp test/hello.nscp -o hello
+
+
+while [ -n "$1" ]
+do
+
+fullpath="${1%.*}"
+filename=$(basename -- "$1")
+extension="${filename##*.}"
+
+case "$extension" in
+nsc) str_gpp+=" $fullpath.c"
+str_nsc+=" $1"
+;;
+nscp) str_gpp+=" $fullpath.cpp"
+str_nsc+=" $1"
+;;
+nscpp) str_gpp+=" $fullpath.cpp"
+str_nsc+=" $1"
+;;
+*) str_gpp+=" $1";;
+esac
+
+shift
+done
+
+nsc $str_nsc
+g++ $str_gpp

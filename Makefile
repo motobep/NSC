@@ -2,7 +2,7 @@ SRC = ./src/
 BIN = ./bin/
 TARGET = nsc-dev
 TARGET_PROD = nsc
-TEST = test/hello.nsc
+TEST = test/hello.nscp
 FLAGS = -std=c++17 -o
 
 all: prod
