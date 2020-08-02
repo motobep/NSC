@@ -22,10 +22,10 @@ NSC will convert your files to usual .c, .cpp files.
 
 ```bash
 # clone the repository
-$ git clonehttps://github.com/motobep/NSC.git
+$ git clone https://github.com/motobep/NSC.git
 
 # change the working directory
-$ cd sherlock
+$ cd NSC
 
 # build NSC
 $ make
