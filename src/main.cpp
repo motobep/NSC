@@ -10,8 +10,8 @@
  * Outputs main.cpp
  *
  * @author motobep: <motobep@yandex.ru>
- * @date  2020.08.01
- * @version: 0.1
+ * @date  2020.08.02
+ * @version: 0.1.1
  */
 
 #include <iostream>
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
         case '\\':
           break;
         case ')':
-          if (!nsc::is_next('{', fin))
+          if (!nsc::is_next('{', fin) && !nsc::is_next('.', fin))
           {
             fout << ';';
           }

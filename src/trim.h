@@ -3,7 +3,6 @@
  * The functions delete spaces.
  *
  * @author motobep: <motobep@yandex.ru>
- * @date  2020.08.01
  */
 
 #ifndef NSC_TRIM

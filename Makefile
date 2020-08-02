@@ -2,17 +2,18 @@ SRC = ./src/
 BIN = ./bin/
 TARGET = nsc-dev
 TARGET_PROD = nsc
+TEST = test/hello.nsc
 FLAGS = -std=c++17 -o
 
-all: build
+all: prod
 
 do: build run
 
 run:
-		$(BIN)$(TARGET) test/hello.nsc
+		$(BIN)$(TARGET) $(TEST)
 
 run-prod:
-		$(BIN)$(TARGET_PROD) test/hello.nsc
+		$(BIN)$(TARGET_PROD) $(TEST)
 
 build:
 		g++ $(SRC)*.cpp $(FLAGS) $(BIN)$(TARGET)

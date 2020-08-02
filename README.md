@@ -1,16 +1,37 @@
 # NSC. No Semicolon C.
 
-It allows you to not write semicolon in the end of a line.
+It allows you to write code without the semicolon in the end of the line.
 Write your C, C++ code as usual, but don't put boring semicolons.
 NSC will convert your files to usual .c, .cpp files.
 
+<p align="center">
+  <a href="#installation">Installation</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#usage">Usage</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#dependencies">Dependencies</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#notice">Notice</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#todo">TODO</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#ps">PS</a>
+</p>
+
 ## Installation
 
-* Copy this repository.
-* Type:
-$ make prod
+```bash
+# clone the repository
+$ git clonehttps://github.com/motobep/NSC.git
 
-That's it. The nsc file in in the bin folder.
+# change the working directory
+$ cd sherlock
+
+# build NSC
+$ make
+```
+
+That's it. The nsc file is in the bin folder.
 
 To check the installation type "make run-prod".
 You should see the hello.cpp file in the test folder.
@@ -40,10 +61,6 @@ NSC doesn't use any regular expressions.
 ## TODO
 
 * Make some config file.
-* Fix semicolons for methods on different lines. Example:
-MyClass.method()
-       .get()
-       .set()
 
 ## PS
 
