@@ -33,4 +33,10 @@ str peek_line(std::ifstream &fin)
   return line;
 }
 
+str get_last_word(const str &s)
+{
+  auto index = s.find_last_of(' ');
+  return s.substr(++index);
+}
+
 } // namespace nsc

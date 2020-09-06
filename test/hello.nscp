@@ -6,5 +6,15 @@ int main(int argc, char *argv[])
 {
   cout << "Hello, world!" << endl
 
+  // else test
+  if (false)
+  {
+    cout << "true"
+  }
+  else
+  {
+    cout << "false"
+  }
+
   return 0
 }

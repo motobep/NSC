@@ -16,6 +16,12 @@ using str = std::string;
 namespace nsc
 {
 
+inline bool is_comment_line(const str &s)
+{
+  const str s_ltrimmed = ltrim_copy(s);
+  return s_ltrimmed[0] == '/' && s_ltrimmed[1] == '/';
+}
+
 inline str get_output(const str &input)
 {
   str rawname = input;
@@ -32,6 +38,8 @@ bool is_next(const char &ch, std::ifstream &fin);
 
 // It's like fin.peek() but for line.
 str peek_line(std::ifstream &fin);
+
+str get_last_word(const str &s);
 
 } // namespace nsc
 
