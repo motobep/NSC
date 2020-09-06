@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
       const str last_word = nsc::get_last_word(line);
       const char last_char = line.back();
 
-      // Handle preprocessor's dirictives ( !(ltrim_copy(line)[0] == '#') ).
+      // Handle preprocessor's dirictives ( ltrim_copy(line)[0] != '#' ).
       if (last_char && nsc::ltrim_copy(line)[0] != '#' && !nsc::is_comment_line(line) && last_word != "else")
       {
         switch (last_char)
