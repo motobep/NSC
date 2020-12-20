@@ -11,13 +11,13 @@
 #include <string>
 #include <algorithm>
 
-using str = std::string;
 
 namespace nsc
 {
+using std::string;
 
 // trim from start (by reference)
-static inline void ltrim(str &s)
+static inline void ltrim(string &s)
 {
   s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
             return !std::isspace(ch);
@@ -25,7 +25,7 @@ static inline void ltrim(str &s)
 }
 
 // trim from end (by reference)
-static inline void rtrim(str &s)
+static inline void rtrim(string &s)
 {
   s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
             return !std::isspace(ch);
@@ -34,28 +34,28 @@ static inline void rtrim(str &s)
 }
 
 // trim from both ends (by reference)
-static inline void trim(str &s)
+static inline void trim(string &s)
 {
   ltrim(s);
   rtrim(s);
 }
 
 // trim from start (copying)
-static inline str ltrim_copy(str s)
+static inline string ltrim_copy(string s)
 {
   ltrim(s);
   return s;
 }
 
 // trim from end (copying)
-static inline str rtrim_copy(str s)
+static inline string rtrim_copy(string s)
 {
   rtrim(s);
   return s;
 }
 
 // trim from both ends (copying)
-static inline str trim_copy(str s)
+static inline string trim_copy(string s)
 {
   trim(s);
   return s;

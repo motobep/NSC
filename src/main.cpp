@@ -24,6 +24,7 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 using std::ofstream;
+using std::string;
 namespace fs = std::filesystem;
 
 
@@ -35,13 +36,13 @@ int main(int argc, char *argv[])
     return 0;
   }
 
-  const str OUTPUT_EXTENSION = ".cpp"; // Put ".c" for c-files.
-  const str OUTPUT_DIR = "./"; // Specify your output directory.
+  const string OUTPUT_EXTENSION = ".cpp"; // Put ".c" for c-files.
+  const string OUTPUT_DIR = "./"; // Specify your output directory.
 
   for (int i = 1; i < argc; i++)
   {
-    const str INPUT(argv[i]); // input filename
-    const str OUTPUT = OUTPUT_DIR + nsc::get_output(INPUT) + OUTPUT_EXTENSION;
+    const string INPUT(argv[i]); // input filename
+    const string OUTPUT = OUTPUT_DIR + nsc::get_output(INPUT) + OUTPUT_EXTENSION;
 
     if (!fs::exists(INPUT))
     {
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
 
     fs::create_directory(OUTPUT_DIR);
 
-    str line;
+    string line;
 
     ifstream fin(INPUT);
     ofstream fout(OUTPUT);
@@ -60,11 +61,10 @@ int main(int argc, char *argv[])
     {
       nsc::rtrim(line);
       fout << line;
-      const str last_word = nsc::get_last_word(line);
+      const string last_word = nsc::get_last_word(line);
       const char last_char = line.back();
 
-      // Handle preprocessor's dirictives ( ltrim_copy(line)[0] != '#' ).
-      if (last_char && nsc::ltrim_copy(line)[0] != '#' && !nsc::is_comment_line(line) && last_word != "else")
+      if (last_char && !nsc::is_preprocessor_dirictive(line) && !nsc::is_comment_line(line) && last_word != "else")
       {
         switch (last_char)
         {

@@ -9,19 +9,20 @@
 
 namespace nsc
 {
+using std::string;
 
 // Is next charcacter "ch" or not. NOTICE: it ignores spaces
 bool is_next(const char &ch, std::ifstream &fin)
 {
-  str line = peek_line(fin);
+  string line = peek_line(fin);
   ltrim(line);
   return line[0] == ch;
 }
 
 // It's like fin.peek() but for line.
-str peek_line(std::ifstream &fin)
+string peek_line(std::ifstream &fin)
 {
-  str line;
+  string line;
 
   // Get current position
   int current = fin.tellg();
@@ -33,7 +34,7 @@ str peek_line(std::ifstream &fin)
   return line;
 }
 
-str get_last_word(const str &s)
+string get_last_word(const string &s)
 {
   auto index = s.find_last_of(' ');
   return s.substr(++index);

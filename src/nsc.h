@@ -11,22 +11,27 @@
 #include <string>
 #include "trim.h"
 
-using str = std::string;
 
 namespace nsc
 {
+using std::string;
 
-inline bool is_comment_line(const str &s)
+inline bool is_comment_line(const string &s)
 {
-  const str s_ltrimmed = ltrim_copy(s);
+  const string s_ltrimmed = ltrim_copy(s);
   return s_ltrimmed[0] == '/' && s_ltrimmed[1] == '/';
 }
 
-inline str get_output(const str &input)
+inline bool is_preprocessor_dirictive(string &line)
 {
-  str rawname = input;
+  return ltrim_copy(line)[0] == '#';
+}
+
+inline string get_output(const string &input)
+{
+  string rawname = input;
   size_t lastindex = input.find_last_of(".");
-  if (lastindex != str::npos)
+  if (lastindex != string::npos)
   {
     rawname = input.substr(0, lastindex);
   }
@@ -37,9 +42,9 @@ inline str get_output(const str &input)
 bool is_next(const char &ch, std::ifstream &fin);
 
 // It's like fin.peek() but for line.
-str peek_line(std::ifstream &fin);
+string peek_line(std::ifstream &fin);
 
-str get_last_word(const str &s);
+string get_last_word(const string &s);
 
 } // namespace nsc
 

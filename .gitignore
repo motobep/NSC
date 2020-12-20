@@ -2,3 +2,4 @@
 bin/*
 test/*.cpp
 ignore
+*_ignore*
